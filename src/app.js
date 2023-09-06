@@ -1,10 +1,12 @@
 //TRAER EXPRESS
 const express = require('express')
+const { PORT } = require('./config/config')
 
 //INICIALIZAR EXPRESS
 const app = express()
 
 //AJUSTES***
+app.set('PORT', PORT)
 
 //MIDDLEWARES
 
