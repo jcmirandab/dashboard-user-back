@@ -1,18 +1,5 @@
-//TRAER EXPRESS
-const express = require('express')
-
-//INICIALIZAR EXPRESS
-const app = express()
-
-//AJUSTES***
-
-//MIDDLEWARES
-
-//RUTAS
-
-app.get('/', (req,res) => {
-    res.send("Hola")
-})
+//importar archivo app
+const app = require('./app')
 
 //PONER EL SERVIDOR A ESCUCHAR
 app.listen(3000, () => {
