@@ -10,6 +10,10 @@ const app = express()
 
 //RUTAS
 
+app.get('/', (req,res) => {
+    res.send("Hola")
+})
+
 //PONER EL SERVIDOR A ESCUCHAR
 app.listen(3000, () => {
     console.log(`Server started on port ${3000}`)
