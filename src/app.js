@@ -15,6 +15,8 @@ const app = express()
 app.set('PORT', PORT)
 
 //MIDDLEWARES
+app.use(express.json())
+
 
 //RUTAS
 app.use('/users',userRoutes)
