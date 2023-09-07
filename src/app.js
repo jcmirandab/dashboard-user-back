@@ -1,6 +1,12 @@
+//TRAER RUTAS
+const userRoutes = require('./routes/user.routes')
+
+require('dotenv').config()
+const { PORT } = require('./config/config')
+
 //TRAER EXPRESS
 const express = require('express')
-const { PORT } = require('./config/config')
+
 
 //INICIALIZAR EXPRESS
 const app = express()
@@ -11,10 +17,7 @@ app.set('PORT', PORT)
 //MIDDLEWARES
 
 //RUTAS
-
-app.get('/', (req,res) => {
-    res.send("Hola")
-})
+app.use('/users',userRoutes)
 
 //permite que el archivo sea importado desde otro archivo
 module.exports = app
