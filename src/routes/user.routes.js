@@ -1,11 +1,13 @@
+const { createUser, getUsers } = require('../controller/users')
+
 //TRAER ROUTES
 const { Router } = require('express')
+
 
 //INICIALIZAR ROUTES
 const router = Router()
 
-router.get('/add', (req,res) => {
-    res.send("Add Users")
-})
+router.post('/', createUser)
+router.get('/', getUsers)
 
 module.exports = router
