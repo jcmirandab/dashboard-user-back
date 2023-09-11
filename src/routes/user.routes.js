@@ -1,6 +1,6 @@
-const { createUser, getUsers } = require('../controller/users')
+const { createUser, getUsers, updateUser, deleteUser } = require('../controller/users')
 const validateMiddleware = require('../middlewares/validateMiddleware')
-const { createUserSchema } = require('../utils/schemas/user')
+const { createUserSchema, updateUserSchema } = require('../utils/schemas/user')
 
 //TRAER ROUTER
 const { Router } = require('express')
@@ -29,7 +29,12 @@ router.post('/', (req, res, next) => {
 //antes de crear el usuario el middleware debe realizar la validacion
 router.post('/', validateMiddleware(createUserSchema, 'body') , createUser)
 
+//patch permite actualizar uno o mas campos, put actualiza todos los campos
+router.patch('/:id', validateMiddleware(updateUserSchema, 'body'), updateUser)
+
 router.get('/', getUsers)
+
+router.delete('/:id',deleteUser)
 
 
 module.exports = router

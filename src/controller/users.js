@@ -32,6 +32,24 @@ const createUser = (req,res) => {
     })
 }
 
+const updateUser = (req, res) => {
+    const {email, nickname, password} = req.body
+    
+    const {id} = req.params
+    
+    users[id].nickname = nickname
+    users[id].email = email
+    users[id].password = password
+
+    const userUpdate = {email, nickname, password}
+    
+    res.status(200).json({
+        data: userUpdate,
+        message: "Usuario actualizado",
+        statusCode: 200
+    })
+}
+
 const getUsers = (req,res) => {
     //res.send(users)
     res.status(200).json({
@@ -41,7 +59,18 @@ const getUsers = (req,res) => {
     })
 }
 
+const deleteUser = (req, res) => {
+    const {id} = req.params
+    users.splice(id,1)
+    res.status(200).json({
+        message: "Usuario eliminado",
+        statusCode: 200
+    })
+}
+
 module.exports = {
     createUser,
-    getUsers
+    updateUser,
+    getUsers,
+    deleteUser
 }
